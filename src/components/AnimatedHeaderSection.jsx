@@ -12,7 +12,8 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
-  const shouldSplitTitle = title.includes(" ");
+  const isMobile = window.innerWidth <= 853;
+  const shouldSplitTitle = !isMobile && title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -43,7 +44,7 @@ const AnimatedHeaderSection = ({
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>
         <div
           ref={headerRef}
-          className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
+          className="flex flex-col justify-center gap-12 pt-16 pb-0 sm:gap-16 sm:pb-2"
         >
           <p
             className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}

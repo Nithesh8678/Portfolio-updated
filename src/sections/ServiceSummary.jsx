@@ -4,47 +4,50 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 const ServiceSummary = () => {
   useGSAP(() => {
+    const isMobile = window.innerWidth <= 768;
+    const scrubValue = isMobile ? 0.05 : true;
+
     gsap.to("#title-service-1", {
-      xPercent: 20,
+      xPercent: isMobile ? 10 : 20,
       scrollTrigger: {
         target: "#title-service-1",
-        scrub: true,
+        scrub: scrubValue,
       },
     });
     gsap.to("#title-service-2", {
-      xPercent: -30,
+      xPercent: isMobile ? -105 : -30,
       scrollTrigger: {
         target: "#title-service-2",
-        scrub: true,
+        scrub: scrubValue,
       },
     });
     gsap.to("#title-service-3", {
-      xPercent: 100,
+      xPercent: isMobile ? 355 : 100,
       scrollTrigger: {
         target: "#title-service-3",
-        scrub: true,
+        scrub: scrubValue,
       },
     });
     gsap.to("#title-service-4", {
-      xPercent: -100,
+      xPercent: isMobile ? -225 : -100,
       scrollTrigger: {
         target: "#title-service-4",
-        scrub: true,
+        scrub: scrubValue,
       },
     });
   });
   return (
     <section className="mt-20 overflow-hidden font-light leading-snug text-center mb-42 contact-text-responsive">
       <div id="title-service-1">
-        <p>Architucture</p>
+        <p>Designer</p>
       </div>
       <div
         id="title-service-2"
         className="flex items-center justify-center gap-3 translate-x-16"
       >
-        <p className="font-normal">Development</p>
+        <p className="font-normal">Blockchain</p>
         <div className="w-10 h-1 md:w-32 bg-gold" />
-        <p>Deployment</p>
+        <p>Developer</p>
       </div>
       <div
         id="title-service-3"
