@@ -54,7 +54,7 @@ const Navbar = () => {
       .timeline({ paused: true })
       .to(topLineRef.current, {
         rotate: 45,
-        y: 3.3,
+        y: 2.6,
         duration: 0.3,
         ease: "power2.inOut",
       })
@@ -62,7 +62,7 @@ const Navbar = () => {
         bottomLineRef.current,
         {
           rotate: -45,
-          y: -3.3,
+          y: -2.6,
           duration: 0.3,
           ease: "power2.inOut",
         },
@@ -99,9 +99,10 @@ const Navbar = () => {
     <>
       <nav
         ref={navRef}
-        className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2"
+        className="fixed z-50 flex flex-col justify-between w-full h-full px-8 uppercase bg-black text-white/80 py-20 gap-y-8 md:w-1/2 md:left-1/2"
+        style={{ transform: "scale(0.8)", transformOrigin: "center" }}
       >
-        <div className="flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl">
+        <div className="flex flex-col text-4xl gap-y-2 md:text-5xl lg:text-6xl">
           {["home", "services", "about", "work", "contact"].map(
             (section, index) => (
               <div key={index} ref={(el) => (linksRef.current[index] = el)}>
@@ -124,8 +125,8 @@ const Navbar = () => {
         >
           <div className="font-light">
             <p className="tracking-wider text-white/50">E-mail</p>
-            <p className="text-xl tracking-widest lowercase text-pretty">
-              JohnDoe@gmail.com
+            <p className="text-lg tracking-widest lowercase text-pretty">
+              nitheshnithesh56@gmail.com
             </p>
           </div>
           <div className="font-light">
@@ -147,7 +148,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
+        className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-11 h-11 md:w-16 md:h-16 top-3 right-8"
         onClick={toggleMenu}
         style={
           showBurger
@@ -157,11 +158,11 @@ const Navbar = () => {
       >
         <span
           ref={topLineRef}
-          className="block w-8 h-0.5 bg-white rounded-full origin-center"
+          className="block w-6 h-0.5 bg-white rounded-full origin-center"
         ></span>
         <span
           ref={bottomLineRef}
-          className="block w-8 h-0.5 bg-white rounded-full origin-center"
+          className="block w-6 h-0.5 bg-white rounded-full origin-center"
         ></span>
       </div>
     </>
