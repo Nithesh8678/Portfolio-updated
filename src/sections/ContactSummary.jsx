@@ -24,12 +24,14 @@ const ContactSummary = () => {
     gsap.to(containerRef.current, {
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "center center",
-        end: "+=800 center",
-        scrub: 0.5,
+        start: "top center",
+        end: "+=600",
+        scrub: 1,
         pin: true,
         pinSpacing: true,
-        markers: false,
+        anticipatePin: 1,
+        fastScrollEnd: true,
+        refreshPriority: -1,
       },
     });
   }, []);

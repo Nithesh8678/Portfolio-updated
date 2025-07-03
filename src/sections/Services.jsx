@@ -11,17 +11,22 @@ const Services = () => {
   const serviceRefs = useRef([]);
   const isDesktop = useMediaQuery({ minWidth: "48rem" }); //768px
   useGSAP(() => {
-    serviceRefs.current.forEach((el) => {
+    serviceRefs.current.forEach((el, index) => {
       if (!el) return;
 
       gsap.from(el, {
-        y: 200,
+        y: 150,
+        opacity: 0,
         scrollTrigger: {
           trigger: el,
-          start: "top 80%",
+          start: "top 85%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+          fastScrollEnd: true,
         },
-        duration: 1,
-        ease: "circ.out",
+        duration: 1.2,
+        ease: "power3.out",
+        delay: index * 0.1,
       });
     });
   }, []);

@@ -22,8 +22,8 @@ const About = () => {
         trigger: "#about",
         start: "bottom 80%",
         end: "bottom 20%",
-        scrub: true,
-        markers: false,
+        scrub: 1,
+        fastScrollEnd: true,
       },
       ease: "power1.inOut",
     });
@@ -33,9 +33,15 @@ const About = () => {
     });
     gsap.to(imgRef.current, {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 2,
-      ease: "power4.out",
-      scrollTrigger: { trigger: imgRef.current },
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: imgRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+        fastScrollEnd: true,
+      },
     });
   });
   return (

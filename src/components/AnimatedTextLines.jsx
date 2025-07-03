@@ -13,10 +13,14 @@ export const AnimatedTextLines = ({ text, className }) => {
         y: 100,
         opacity: 0,
         duration: 1,
-        stagger: 0.3,
-        ease: "back.out",
+        stagger: 0.15,
+        ease: "back.out(1.4)",
         scrollTrigger: {
           trigger: containerRef.current,
+          start: "top 85%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+          fastScrollEnd: true,
         },
       });
     }
