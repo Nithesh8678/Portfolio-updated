@@ -9,6 +9,8 @@ const AnimatedHeaderSection = ({
   text,
   textColor,
   withScrollTrigger = false,
+  animationDelay = 0,
+  shouldAnimate = true,
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
@@ -16,29 +18,55 @@ const AnimatedHeaderSection = ({
   const shouldSplitTitle = !isMobile && title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
+    // Set initial states
+    gsap.set(contextRef.current, {
+      y: shouldAnimate ? 0 : "50vh",
+      opacity: shouldAnimate ? 1 : 0,
+    });
+    gsap.set(headerRef.current, {
+      opacity: shouldAnimate ? 1 : 0,
+      y: shouldAnimate ? 0 : "200",
+    });
+
+    if (!shouldAnimate) return;
+
     const tl = gsap.timeline({
+      delay: animationDelay,
       scrollTrigger: withScrollTrigger
         ? {
             trigger: contextRef.current,
           }
         : undefined,
     });
-    tl.from(contextRef.current, {
-      y: "50vh",
-      duration: 1,
-      ease: "circ.out",
+
+    // Smooth fade-in for the entire section first
+    tl.to(contextRef.current, {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
     });
+
+    tl.from(
+      contextRef.current,
+      {
+        y: "50vh",
+        duration: 1.2,
+        ease: "circ.out",
+      },
+      "-=0.3"
+    );
+
     tl.from(
       headerRef.current,
       {
         opacity: 0,
         y: "200",
-        duration: 1,
+        duration: 1.2,
         ease: "circ.out",
       },
-      "<+0.2"
+      "<+0.3"
     );
-  }, []);
+  }, [animationDelay, shouldAnimate]);
   return (
     <div ref={contextRef}>
       <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}>

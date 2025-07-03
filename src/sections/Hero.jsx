@@ -2,12 +2,24 @@ import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet";
 import { Environment, Float, Lightformer } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
+import { useState, useEffect } from "react";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
-const Hero = () => {
+const Hero = ({ isLoadingComplete }) => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const text = `I help growing brands and startups gain an
 unfair advantage through premium
 results driven webs/apps`;
+
+  useEffect(() => {
+    if (isLoadingComplete) {
+      // Small delay for smooth transition after loading screen exits
+      const timer = setTimeout(() => {
+        setShouldAnimate(true);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoadingComplete]);
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <AnimatedHeaderSection
@@ -15,6 +27,7 @@ results driven webs/apps`;
         title={"Nithesh S K"}
         text={text}
         textColor={"text-black"}
+        shouldAnimate={shouldAnimate}
       />
       <figure
         className="absolute inset-0 -z-50"

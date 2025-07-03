@@ -104,6 +104,17 @@
       transform: translateX(calc(-100% - var(--gap)));
     }
   }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 0.1;
+      transform: translateY(-20px);
+    }
+  }
 }
 
 body {
@@ -132,4 +143,8 @@ body {
 
 @utility contact-text-responsive {
   @apply text-[42px] sm:text-[52px] md:text-[62px] lg:text-[100px];
+}
+
+@utility loading-line-float {
+  animation: fadeInOut 3s ease-in-out infinite alternate;
 }
