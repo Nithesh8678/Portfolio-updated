@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import ServiceSummary from "./sections/ServiceSummary";
@@ -10,10 +10,6 @@ import ContactSummary from "./sections/ContactSummary";
 import Contact from "./sections/Contact";
 import Loading from "./components/Loading";
 import { useProgress } from "@react-three/drei";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   const { progress } = useProgress();
@@ -22,16 +18,6 @@ const App = () => {
   const handleLoadingComplete = () => {
     setIsReady(true);
   };
-
-  // Refresh ScrollTrigger after loading and ensure smooth transitions
-  useEffect(() => {
-    if (isReady) {
-      // Small delay to ensure DOM is fully rendered
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
-    }
-  }, [isReady]);
 
   return (
     <ReactLenis root className="relative w-screen min-h-screen overflow-x-auto">

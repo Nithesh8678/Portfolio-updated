@@ -35,10 +35,6 @@ const AnimatedHeaderSection = ({
       scrollTrigger: withScrollTrigger
         ? {
             trigger: contextRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
           }
         : undefined,
     });

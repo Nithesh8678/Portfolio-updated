@@ -5,27 +5,35 @@ gsap.registerPlugin(ScrollTrigger);
 const ServiceSummary = () => {
   useGSAP(() => {
     const isMobile = window.innerWidth <= 768;
-    const scrubValue = isMobile ? 0.1 : 1;
+    const scrubValue = isMobile ? 0.05 : true;
 
-    const elements = [
-      { id: "#title-service-1", xPercent: isMobile ? 10 : 20 },
-      { id: "#title-service-2", xPercent: isMobile ? -105 : -30 },
-      { id: "#title-service-3", xPercent: isMobile ? 355 : 100 },
-      { id: "#title-service-4", xPercent: isMobile ? -225 : -100 },
-    ];
-
-    elements.forEach((element) => {
-      gsap.to(element.id, {
-        xPercent: element.xPercent,
-        scrollTrigger: {
-          trigger: element.id,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: scrubValue,
-          fastScrollEnd: true,
-          preventOverlaps: true,
-        },
-      });
+    gsap.to("#title-service-1", {
+      xPercent: isMobile ? 10 : 20,
+      scrollTrigger: {
+        target: "#title-service-1",
+        scrub: scrubValue,
+      },
+    });
+    gsap.to("#title-service-2", {
+      xPercent: isMobile ? -105 : -30,
+      scrollTrigger: {
+        target: "#title-service-2",
+        scrub: scrubValue,
+      },
+    });
+    gsap.to("#title-service-3", {
+      xPercent: isMobile ? 355 : 100,
+      scrollTrigger: {
+        target: "#title-service-3",
+        scrub: scrubValue,
+      },
+    });
+    gsap.to("#title-service-4", {
+      xPercent: isMobile ? -225 : -100,
+      scrollTrigger: {
+        target: "#title-service-4",
+        scrub: scrubValue,
+      },
     });
   });
   return (

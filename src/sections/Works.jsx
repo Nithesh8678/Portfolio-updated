@@ -29,17 +29,14 @@ const Works = () => {
     });
 
     gsap.from("#project", {
-      y: 80,
+      y: 100,
       opacity: 0,
+      delay: 0.5,
       duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
+      stagger: 0.3,
+      ease: "back.out",
       scrollTrigger: {
         trigger: "#project",
-        start: "top 85%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-        fastScrollEnd: true,
       },
     });
   }, []);

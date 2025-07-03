@@ -1,8 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import gsap from "gsap";
-import { Observer } from "gsap/all";
 import { useEffect, useRef } from "react";
-gsap.registerPlugin(Observer);
 const Marquee = ({
   items,
   className = "text-white bg-black",
@@ -122,24 +120,10 @@ const Marquee = ({
       repeat: -1,
       paddingRight: 30,
       reversed: reverse,
+      speed: 1, // Constant speed for normal marquee
     });
 
-    Observer.create({
-      onChangeY(self) {
-        let factor = 2.5;
-        if ((!reverse && self.deltaY < 0) || (reverse && self.deltaY > 0)) {
-          factor *= -1;
-        }
-        gsap
-          .timeline({
-            defaults: {
-              ease: "none",
-            },
-          })
-          .to(tl, { timeScale: factor * 2.5, duration: 0.2, overwrite: true })
-          .to(tl, { timeScale: factor / 2.5, duration: 1 }, "+=0.3");
-      },
-    });
+    // Remove scroll observer - just let it run at constant speed
     return () => tl.kill();
   }, [items, reverse]);
   return (
