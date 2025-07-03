@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import Marquee from "../components/Marquee";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Marquee from "../components/Marquee";
 
 const ContactSummary = () => {
   const containerRef = useRef(null);
@@ -39,8 +39,8 @@ const ContactSummary = () => {
       className="flex flex-col items-center justify-between min-h-screen gap-12 mt-16"
     >
       <Marquee items={items} />
-      <div className="overflow-hidden font-light text-center contact-text-responsive">
-        <p>
+      <div className="overflow-hidden font-light text-center px-4">
+        <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight">
           “ Let’s build a <br />
           <span className="font-normal">memorable</span> &{" "}
           <span className="italic">inspiring</span> <br />

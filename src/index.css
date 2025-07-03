@@ -95,13 +95,21 @@
   --font-amiamie: "Amiamie", sans-serif;
   --font-amiamie-round: "Amiamie-Round", sans-serif;
 
-  --animate-marquee: marquee 40s infinite linear;
-  @keyframes marquee {
-    from {
+  @keyframes scroll {
+    0% {
       transform: translateX(0);
     }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  @keyframes scroll-reverse {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 
@@ -147,4 +155,12 @@ body {
 
 @utility loading-line-float {
   animation: fadeInOut 3s ease-in-out infinite alternate;
+}
+
+@utility animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+@utility animate-scroll-reverse {
+  animation: scroll-reverse 30s linear infinite;
 }
