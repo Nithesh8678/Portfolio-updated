@@ -80,18 +80,18 @@ export const servicesData = [
 export const projects = [
   {
     id: 1,
-    name: "Mobile Accessories E-commerce",
+    name: "Subtitle Generation Website",
     description:
       "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
     href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    image: "/assets/projects/project1.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "AWS" },
       { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
+      { id: 4, name: "Supabase" },
+      { id: 5, name: "Gsap" },
     ],
   },
   {
@@ -100,7 +100,7 @@ export const projects = [
     description:
       "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
     href: "",
-    image: "/assets/projects/plant-shop.jpg",
+    image: "/assets/projects/project2.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "React" },
@@ -111,11 +111,11 @@ export const projects = [
   },
   {
     id: 3,
-    name: "Apple Tech Marketplace",
+    name: "Texus'25",
     description:
       "An e-commerce platform for Apple products and accessories with deals and category filtering.",
     href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
+    image: "/assets/projects/project3.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
       { id: 1, name: "Blazor" },
@@ -126,47 +126,48 @@ export const projects = [
   },
   {
     id: 4,
-    name: "Electronics & Gadgets Store",
+    name: "Hackverse'25",
     description:
       "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
     href: "",
-    image: "/assets/projects/electronics-store.jpg",
+    image: "/assets/projects/project4.png",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "Firebase" },
+      { id: 3, name: "Gsap" },
+      { id: 4, name: "Aceternity" },
     ],
   },
   {
     id: 5,
-    name: "Home Decor Marketplace",
+    name: "Lost & Found",
     description:
       "A curated collection of designer home decor items, including furniture and artisan vases.",
     href: "",
-    image: "/assets/projects/home-decor-store.jpg",
+    image: "/assets/projects/project5.png",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
+      { id: 1, name: "Next.js" },
+      { id: 2, name: "Solidity" },
       { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
+      { id: 4, name: "Web3.js" },
+      { id: 5, name: "Ethers.js" },
     ],
   },
   {
     id: 6,
-    name: "Digital Game Store",
+    name: "AI Interview Prep App",
     description:
       "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
     href: "",
-    image: "/assets/projects/game-store.jpg",
+    image: "/assets/projects/project6.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
       { id: 1, name: "Svelte" },
       { id: 2, name: "Node.js" },
       { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
+      { id: 4, name: "Vapi AI" },
     ],
   },
 ];

@@ -79,7 +79,7 @@ const AnimatedHeaderSection = ({
           >
             {subTitle}
           </p>
-          <div className="px-10">
+          <div className="px-1">
             <h1
               className={`flex flex-col gap-12 uppercase banner-text-responsive sm:gap-16 md:block ${textColor}`}
             >
