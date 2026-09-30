@@ -1,78 +1,31 @@
-import { Canvas } from "@react-three/fiber";
-import { Planet } from "../components/Planet";
-import { Environment, Float, Lightformer } from "@react-three/drei";
-import { useMediaQuery } from "react-responsive";
-import { useState, useEffect } from "react";
+import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
-const Hero = ({ isLoadingComplete }) => {
-  const isMobile = useMediaQuery({ maxWidth: 853 });
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-  const text = `I help growing brands and startups gain an
-unfair advantage through premium
-results driven webs/apps`;
-
+const PlanetScene = lazy(() => import("../components/PlanetScene"));
+class SceneBoundary extends Component {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() { return this.state.failed ? this.props.fallback : this.props.children; }
+}
+const Hero = () => {
+  const sectionRef = useRef(null);
+  const [loadScene, setLoadScene] = useState(false);
+  const [active, setActive] = useState(true);
   useEffect(() => {
-    if (isLoadingComplete) {
-      // Small delay for smooth transition after loading screen exits
-      const timer = setTimeout(() => {
-        setShouldAnimate(true);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoadingComplete]);
+    // Text and navigation are usable before the optional decorative scene loads.
+    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 767px)").matches || navigator.connection?.saveData) return;
+    const timer = setTimeout(() => setLoadScene(true), 1200);
+    const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting));
+    observer.observe(sectionRef.current);
+    return () => { clearTimeout(timer); observer.disconnect(); };
+  }, []);
+  const poster = <img className="hero-poster" src="/images/planet-poster.webp" alt="" width="1000" height="694" fetchPriority="high" />;
   return (
-    <section id="home" className="flex flex-col justify-end min-h-screen">
-      <AnimatedHeaderSection
-        subTitle={"404 No Bugs Found"}
-        title={"Nithesh S K"}
-        text={text}
-        textColor={"text-black"}
-        shouldAnimate={shouldAnimate}
-      />
-      <figure
-        className="absolute inset-0 -z-50"
-        style={{ width: "100vw", height: "100vh" }}
-      >
-        <Canvas
-          shadows
-          camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
-        >
-          <ambientLight intensity={0.5} />
-          <Float speed={0.5}>
-            <Planet scale={isMobile ? 0.7 : 1} />
-          </Float>
-          <Environment resolution={256}>
-            <group rotation={[-Math.PI / 3, 4, 1]}>
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[0, 5, -9]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[0, 3, 1]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[-5, -1, -1]}
-                scale={10}
-              />
-              <Lightformer
-                form={"circle"}
-                intensity={2}
-                position={[10, 1, 0]}
-                scale={16}
-              />
-            </group>
-          </Environment>
-        </Canvas>
+    <section ref={sectionRef} id="home" className="relative isolate flex flex-col justify-end min-h-screen">
+      <AnimatedHeaderSection subTitle="404 No Bugs Found" title="Nithesh S K" text={`I help growing brands and startups gain an\nunfair advantage through premium\nresults driven webs/apps`} textColor="text-black" />
+      <figure className="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
+        {loadScene ? <SceneBoundary fallback={poster}><Suspense fallback={poster}><PlanetScene active={active} /></Suspense></SceneBoundary> : poster}
       </figure>
     </section>
   );
 };
-
 export default Hero;

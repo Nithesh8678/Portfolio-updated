@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 const ServiceSummary = () => {
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const isMobile = window.innerWidth <= 768;
     const scrubValue = isMobile ? 0.05 : true;
 

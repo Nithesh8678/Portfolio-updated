@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
 import { AnimatedTextLines } from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
@@ -14,10 +15,11 @@ const AnimatedHeaderSection = ({
 }) => {
   const contextRef = useRef(null);
   const headerRef = useRef(null);
-  const isMobile = window.innerWidth <= 853;
+  const isMobile = useMediaQuery({ maxWidth: 853 });
   const shouldSplitTitle = !isMobile && title.includes(" ");
   const titleParts = shouldSplitTitle ? title.split(" ") : [title];
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Set initial states
     gsap.set(contextRef.current, {
       y: shouldAnimate ? 0 : "50vh",

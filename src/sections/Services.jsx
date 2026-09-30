@@ -11,6 +11,7 @@ const Services = () => {
   const serviceRefs = useRef([]);
   const isDesktop = useMediaQuery({ minWidth: "48rem" }); //768px
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     serviceRefs.current.forEach((el) => {
       if (!el) return;
 

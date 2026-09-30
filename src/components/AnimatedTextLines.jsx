@@ -8,6 +8,7 @@ export const AnimatedTextLines = ({ text, className }) => {
   const lineRefs = useRef([]);
   const lines = text.split("\n").filter((line) => line.trim() !== "");
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (lineRefs.current.length > 0) {
       gsap.from(lineRefs.current, {
         y: 100,

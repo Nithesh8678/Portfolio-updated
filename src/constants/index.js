@@ -79,97 +79,237 @@ export const servicesData = [
 ];
 export const projects = [
   {
-    id: 1,
-    name: "Subtitle Generation Website",
-    description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
-    href: "",
-    image: "/assets/projects/project1.png",
-    bgImage: "/assets/backgrounds/blanket.jpg",
-    frameworks: [
-      { id: 1, name: "Next.js" },
-      { id: 2, name: "AWS" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "Supabase" },
-      { id: 5, name: "Gsap" },
-    ],
+    "id": 1,
+    "name": "QuteMail",
+    "tagline": "Email, with encryption choices",
+    "description": "Connect email accounts, sync an inbox and compose messages with AES encryption or simulated BB84 key exchange. A React mailbox connects to a Django REST API for sending, receiving and key management.",
+    "href": "https://github.com/Nithesh8678/QuteMail",
+    "linkLabel": "View source",
+    "image": "/assets/projects/QuteMail.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "React"
+      },
+      {
+        "id": 2,
+        "name": "TypeScript"
+      },
+      {
+        "id": 3,
+        "name": "Django REST"
+      },
+      {
+        "id": 4,
+        "name": "Tailwind CSS"
+      }
+    ]
   },
   {
-    id: 2,
-    name: "Plant Shop E-commerce",
-    description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
-    href: "",
-    image: "/assets/projects/project2.png",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
-    ],
+    "id": 2,
+    "name": "AI-DPR",
+    "tagline": "From documents to review decisions",
+    "description": "Upload PDF, DOCX or text project reports for extraction and automated completeness, compliance, feasibility and risk checks. The dashboard presents scores, section breakdowns and recommendations to support human review.",
+    "href": "https://github.com/Nithesh8678/AI-DPR",
+    "linkLabel": "View source",
+    "image": "/assets/projects/AI-DPR.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "React"
+      },
+      {
+        "id": 2,
+        "name": "TypeScript"
+      },
+      {
+        "id": 3,
+        "name": "FastAPI"
+      },
+      {
+        "id": 4,
+        "name": "PyMuPDF"
+      }
+    ]
   },
   {
-    id: 3,
-    name: "Texus'25",
-    description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
-    href: "",
-    image: "/assets/projects/project3.png",
-    bgImage: "/assets/backgrounds/map.jpg",
-    frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
-    ],
+    "id": 3,
+    "name": "bartr",
+    "tagline": "Skills worth exchanging",
+    "description": "Create a profile with skills you offer and skills you need, discover matching people and manage exchange requests. Includes Gemini-assisted matching with a fallback, plus real-time chat and file sharing.",
+    "href": "https://github.com/Nithesh8678/bartr",
+    "linkLabel": "View source",
+    "image": "/assets/projects/bartr.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "Next.js"
+      },
+      {
+        "id": 2,
+        "name": "TypeScript"
+      },
+      {
+        "id": 3,
+        "name": "Supabase"
+      },
+      {
+        "id": 4,
+        "name": "Gemini"
+      }
+    ]
   },
   {
-    id: 4,
-    name: "Hackverse'25",
-    description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
-    href: "",
-    image: "/assets/projects/project4.png",
-    bgImage: "/assets/backgrounds/poster.jpg",
-    frameworks: [
-      { id: 1, name: "Next.js" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "Gsap" },
-      { id: 4, name: "Aceternity" },
-    ],
+    "id": 4,
+    "name": "FindChain",
+    "tagline": "A clearer path back to your things",
+    "description": "Report lost or found items with photos, locations and descriptions, then track them in a personal dashboard. Firebase stores the reports, while Gemini compares report details and explains potential matches.",
+    "href": "https://github.com/Nithesh8678/FindChain",
+    "linkLabel": "View source",
+    "image": "/assets/projects/FindChain.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "React"
+      },
+      {
+        "id": 2,
+        "name": "TypeScript"
+      },
+      {
+        "id": 3,
+        "name": "Vite"
+      },
+      {
+        "id": 4,
+        "name": "Firebase"
+      },
+      {
+        "id": 5,
+        "name": "Gemini"
+      }
+    ]
   },
   {
-    id: 5,
-    name: "Lost & Found",
-    description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
-    href: "",
-    image: "/assets/projects/project5.png",
-    bgImage: "/assets/backgrounds/table.jpg",
-    frameworks: [
-      { id: 1, name: "Next.js" },
-      { id: 2, name: "Solidity" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Web3.js" },
-      { id: 5, name: "Ethers.js" },
-    ],
+    "id": 5,
+    "name": "meshT",
+    "tagline": "Signed offline. Relayed nearby.",
+    "description": "Sign crypto transfers on a phone without an internet connection and relay them through nearby Bluetooth devices. An internet-connected gateway submits them to the blockchain; the app includes wallet, mesh-status and transaction views.",
+    "href": "https://github.com/Nithesh8678/meshT",
+    "linkLabel": "View source",
+    "image": "/assets/projects/meshT.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "React Native"
+      },
+      {
+        "id": 2,
+        "name": "Expo"
+      },
+      {
+        "id": 3,
+        "name": "TypeScript"
+      },
+      {
+        "id": 4,
+        "name": "BLE"
+      },
+      {
+        "id": 5,
+        "name": "ethers"
+      }
+    ]
   },
   {
-    id: 6,
-    name: "AI Interview Prep App",
-    description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/project6.png",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Vapi AI" },
-    ],
+    "id": 6,
+    "name": "JOCKY",
+    "tagline": "Evidence-led endpoint investigation",
+    "description": "Collect read-only endpoint evidence with a Rust agent and a custom investigation language. A FastAPI and PostgreSQL backend powers a Next.js dashboard for scans, investigations, hash verification and reports.",
+    "href": "https://github.com/Nithesh8678/jocky",
+    "linkLabel": "View source",
+    "image": "/assets/projects/jocky.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "Rust"
+      },
+      {
+        "id": 2,
+        "name": "FastAPI"
+      },
+      {
+        "id": 3,
+        "name": "PostgreSQL"
+      },
+      {
+        "id": 4,
+        "name": "Next.js"
+      }
+    ]
   },
+  {
+    "id": 7,
+    "name": "Unavo",
+    "tagline": "Home-style meals, delivered in Chennai",
+    "description": "A meal-delivery website for Chennai with a budget-plan selection and availability flow. Customers can explore meals and contact the team; customized and diet plans are shown as coming soon.",
+    "href": "https://www.unavo.in/",
+    "linkLabel": "Visit website",
+    "image": "/assets/projects/unavo.webp",
+    "visualLabel": "Live website screenshot",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "Next.js"
+      },
+      {
+        "id": 2,
+        "name": "TypeScript"
+      },
+      {
+        "id": 3,
+        "name": "Prisma"
+      },
+      {
+        "id": 4,
+        "name": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "NotchPilot",
+    "tagline": "Voice commands from the MacBook notch",
+    "description": "A native macOS app with on-device speech recognition and a notch-area interface. Spoken commands launch apps, open folders and websites, adjust volume and operate supported Accessibility controls, with cancellation and a bounded action queue.",
+    "href": "https://github.com/Nithesh8678/notchpilot",
+    "linkLabel": "View source",
+    "image": "/assets/projects/notchpilot.svg",
+    "visualLabel": "Designed feature preview",
+    "frameworks": [
+      {
+        "id": 1,
+        "name": "Swift"
+      },
+      {
+        "id": 2,
+        "name": "SwiftUI"
+      },
+      {
+        "id": 3,
+        "name": "AppKit"
+      },
+      {
+        "id": 4,
+        "name": "Apple Speech"
+      }
+    ]
+  }
 ];
 export const socials = [
   { name: "Instagram", href: "https://www.instagram.com/nitheyyyshhh" },
