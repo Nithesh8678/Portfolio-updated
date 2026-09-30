@@ -21,6 +21,7 @@ const ContactSummary = () => {
   ];
 
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.to(containerRef.current, {
       scrollTrigger: {
         trigger: containerRef.current,

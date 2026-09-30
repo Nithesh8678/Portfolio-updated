@@ -15,6 +15,7 @@ const Contact = () => {
   ];
 
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.from(".social-link", {
       y: 100,
       opacity: 0,

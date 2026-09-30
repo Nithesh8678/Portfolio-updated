@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { socials } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Link } from "react-scroll";
+
 
 const Navbar = () => {
   const navRef = useRef(null);
+  const buttonRef = useRef(null);
   const linksRef = useRef([]);
   const contactRef = useRef(null);
   const topLineRef = useRef(null);
@@ -88,32 +89,53 @@ const Navbar = () => {
   const toggleMenu = () => {
     if (isOpen) {
       tl.current.reverse();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) tl.current.progress(0).pause();
       iconTl.current.reverse();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) iconTl.current.progress(0).pause();
     } else {
       tl.current.play();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) tl.current.progress(1).pause();
       iconTl.current.play();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) iconTl.current.progress(1).pause();
     }
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKey = (event) => {
+      if (event.key === "Escape") { tl.current.reverse(); iconTl.current.reverse();
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) iconTl.current.progress(0).pause(); setIsOpen(false); buttonRef.current.focus(); }
+      if (event.key === "Tab") {
+        const controls = [...navRef.current.querySelectorAll("a[href]"), buttonRef.current];
+        const first = controls[0], last = controls.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
+    navRef.current.querySelector("a").focus();
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [isOpen]);
   return (
     <>
       <nav
         ref={navRef}
+        id="site-navigation"
+        aria-label="Main navigation"
+        inert={!isOpen}
         className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-black text-white/80 py-16 gap-y-8 md:w-1/2 md:left-1/2"
       >
         <div className="flex flex-col text-3xl gap-y-3 md:text-4xl lg:text-5xl xl:text-6xl">
           {["home", "services", "about", "work", "contact"].map(
             (section, index) => (
               <div key={index} ref={(el) => (linksRef.current[index] = el)}>
-                <Link
+                <a
                   className="transition-all duration-300 cursor-pointer hover:text-white"
-                  to={`${section}`}
-                  smooth
-                  offset={0}
-                  duration={2000}
+                  href={`#${section}`}
+                  onClick={toggleMenu}
                 >
                   {section}
-                </Link>
+                </a>
               </div>
             )
           )}
@@ -146,7 +168,12 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+        aria-controls="site-navigation"
         className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
         onClick={toggleMenu}
         style={
@@ -163,7 +190,7 @@ const Navbar = () => {
           ref={bottomLineRef}
           className="block w-8 h-0.5 bg-white rounded-full origin-center"
         ></span>
-      </div>
+      </button>
     </>
   );
 };

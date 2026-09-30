@@ -76,5 +76,3 @@ export function Planet(props) {
     </group>
   );
 }
-
-useGLTF.preload("/models/Planet.glb");

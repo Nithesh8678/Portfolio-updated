@@ -16,6 +16,7 @@ const About = () => {
 🎸 Vibing with spotify while CI pipelines pass (multitasking at its finest)`;
   const imgRef = useRef(null);
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     gsap.to("#about", {
       scale: 0.95,
       scrollTrigger: {
@@ -50,7 +51,11 @@ const About = () => {
       <div className="flex flex-col items-center justify-between gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/60">
         <img
           ref={imgRef}
-          src="images/about.jpg"
+          src="/images/about.webp"
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="800"
           alt="man"
           className="w-md rounded-3xl"
         />
